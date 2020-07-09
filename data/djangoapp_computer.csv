@@ -1,0 +1,13 @@
+id,computer_name,IP_address,MAC_address,users_name,location,purchase_date,timestamp,export_to_CSV
+1,arbadjie-pc,192.168.1.1,adasdasd,arbadjie,IT officed,2019-04-13,2019-04-13,0
+3,jallow-pc,192.168.1.3,wsjsj,fjallow,IT Office,2019-04-13,2019-04-13,0
+5,compXYZ,1.1.1.1,ss:ssss,arbadjie,ssss,2019-06-29,2019-04-13,0
+6,comp2,1.1.1.2,aa:ss:ss,badjie,,2019-04-13,2019-04-13,0
+8,addh,h,hjj,hj,,2019-04-13,2019-04-13,0
+10,ddddddd,klahdfa,sdfkhkl,adfkhkl,ddddddd,2019-04-13,2019-04-13,0
+11,sdfjkldf,klahdfa,sdfkhkl,adfkhkl,dsjfhkdf,2019-04-13,2019-04-13,0
+13,comp13,192.168.1.13,adfj,asdjk,asfdjk,,2019-04-13,0
+14,asdfas,asf,asf,adf,adf,2019-04-13,2019-04-13,0
+15,alpha-pc,192.168.1.10,111111,asasd,asfsad,2019-09-09,2019-09-09,0
+16,Chaw-pc,192.168.1.100,aa,achaw,IT Unit,2019-11-30,2019-11-30,0
+17,Test Computer,192.168.1.10,aa,testuser,IT,2019-12-29,2019-12-29,0

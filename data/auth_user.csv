@@ -1,0 +1,3 @@
+id,password,is_superuser,username,first_name,last_name,email,is_staff,is_active,date_joined,last_login
+1,pbkdf2_sha256$20000$Gp6FYhwkRtyH$GU5KqrhfDct8tA6MgOMMqbnTE2FwXsVeTUglmcZoAnY=,1,test,,,arbadjie@hotmail.com,1,1,2019-03-04 23:47:26.184290,2019-03-04 23:47:47.726433
+2,pbkdf2_sha256$20000$clPnKYxSHvBr$d48FJIMCBU0S8VN2JCSHwry8X+E3wV55uTHEdKu7oqw=,1,arbadjie,,,arbadjie@hotmail.com,1,1,2019-03-04 23:59:57.886775,2019-11-10 22:14:02.498079

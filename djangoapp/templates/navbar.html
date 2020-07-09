@@ -1,0 +1,61 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <a class="navbar-brand" href="#">AMIS v1.0</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      {% if request.user.is_authenticated %}
+      <li class="nav-item">
+        <a class="nav-link" href="/disease_report_list">Disease Report</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/clinical_list">Clinical</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/lab_list">Lab</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/abattoir_list">Abattor</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/locality_list">Locality Infor</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/vaccination_list">Vaccination</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/vetInfraIndustry_list">Vet Industry</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/transportFleet_list">Transport Fleet</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/production_list">Production</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/permits_list">Permit</a>
+      </li>
+
+      {% endif %}
+    </ul>
+    <ul class="navbar-nav">
+        {% if request.user.is_authenticated %}
+        <li><a href="/accounts/logout"><button class="btn btn-danger">{{ user }} | Logout</button></a></li>
+        {% else %}
+        <li><a href="/accounts/login">Login</a></li>
+        {% endif %}
+    </ul>
+  </div>
+</nav>
+
+{% if request.user.is_authenticated %}
+      <a href="/settings"> 
+        <div id="settings">
+              Settings <img src="/static/img/settings.png">
+        </div>
+      </a>
+{% endif %}

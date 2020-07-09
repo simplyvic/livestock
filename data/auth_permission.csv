@@ -1,0 +1,25 @@
+id,content_type_id,codename,name
+1,1,add_logentry,Can add log entry
+2,1,change_logentry,Can change log entry
+3,1,delete_logentry,Can delete log entry
+4,2,add_permission,Can add permission
+5,2,change_permission,Can change permission
+6,2,delete_permission,Can delete permission
+7,3,add_group,Can add group
+8,3,change_group,Can change group
+9,3,delete_group,Can delete group
+10,4,add_user,Can add user
+11,4,change_user,Can change user
+12,4,delete_user,Can delete user
+13,5,add_contenttype,Can add content type
+14,5,change_contenttype,Can change content type
+15,5,delete_contenttype,Can delete content type
+16,6,add_session,Can add session
+17,6,change_session,Can change session
+18,6,delete_session,Can delete session
+19,7,add_computer,Can add computer
+20,7,change_computer,Can change computer
+21,7,delete_computer,Can delete computer
+22,8,add_operating_system,Can add operating_system
+23,8,change_operating_system,Can change operating_system
+24,8,delete_operating_system,Can delete operating_system

@@ -1,0 +1,27 @@
+body {
+
+}
+
+
+table{
+	font-size: 13px;
+	width: 95%;
+    margin: auto;
+	text-align: center;
+	box-shadow: 12px 12px 20px 6px #2e6da4;
+	font-size: 15px;
+}
+
+table tr:nth-child(odd){
+	background: #B8CAE4
+}
+
+table tr:nth-child(even){
+	background: #dae5f4
+
+}
+
+
+.title{
+	text-align: center;
+}

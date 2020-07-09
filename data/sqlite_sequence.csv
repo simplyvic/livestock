@@ -1,0 +1,9 @@
+name,seq
+django_migrations,25
+django_content_type,8
+auth_permission,24
+auth_user,2
+django_admin_log,29
+djangoapp_operating_system,3
+djangoapp_computer_operating_system,9
+djangoapp_computer,18

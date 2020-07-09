@@ -1,0 +1,79 @@
+body {
+    background-image: url(../img/bg.jpg);
+
+}
+
+.flt-search #div_id_clinical_name, 
+.flt-search #div_id_owner_name,
+.flt-search #div_id_start_date,
+.flt-search #div_id_end_date
+{
+    float: left;
+    width: 200px;
+    margin-right: 20px;
+}
+
+.title{
+    font-family: helvetica;
+    font-weight: bold;
+    font-size: 25px;
+    color: #2e6da4;
+    text-align: left;
+}
+
+/*Color, align and shadow the table*/
+table{
+    width: 100%;
+    /*margin: auto;*/
+    text-align: center;
+    /*box-shadow: 12px 12px 20px 6px #2e6da4;*/
+    font-size: 15px;
+}
+
+
+/*Make alternating colors for the table rows*/
+table tr:nth-child(odd){
+    background: #B8CAE4
+}
+ 
+table tr:nth-child(even){
+    background: #dae5f4
+ 
+}
+
+.success{
+	list-style: none;
+	background-color: #2e6da4;
+	color: white;
+	box-shadow: 12px 12px 12px #e61c66;
+	text-align: center;
+	}
+
+#settings{
+    background-color: #212529;
+    color: white;
+    text-align: center;
+    display: inline;
+    font-weight: bolder;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 5px;
+    position: fixed;
+    bottom: 0px;
+    left: -80px;
+    z-index: 3000;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+ 
+ 
+ 
+#settings:hover{
+    left: 0px;
+    -webkit-transition: all 0.5s ease;
+     -moz-transition: all 0.5s ease;
+       -o-transition: all 0.5s ease;
+      -ms-transition: all 0.5s ease;
+          transition: all 0.5s ease;
+}
