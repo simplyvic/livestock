@@ -2,6 +2,10 @@ from django.db import models
 from datetime import datetime, date
 
 # Create your models here.
+class Approver(models.Model):
+    name = models.CharField(max_length=30, blank=True) 
+    def __unicode__(self):
+       return self.name
 
 class Quarter(models.Model):
     name = models.CharField(max_length=30, blank=True) 

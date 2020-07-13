@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
-    <title>AMIS</title>
+    <title>LMIS</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/navbar-fixed/">
 
@@ -55,12 +55,12 @@
     {% endif %}
       
     {% if perms.djangoapp.add_general %}
-      <span class='myButtonAppr myButton'><a href="/lab_approve_one_list">Pending 1st Approvals (0{{countquerysetAppr}})
+      <span class='myButtonAppr myButton'><a href="/lab_approve_one_list">Pending 1st Approvals (0{{countqueryset1stAppr}})
       </a></span>
     {% endif %}
 
     {% if perms.djangoapp.add_general %}
-      <span class='myButtonAppr myButton'><a href="/lab_approve_two_list">Pending 2nd Approval (0{{countquerysetAppr}})
+      <span class='myButtonAppr myButton'><a href="/lab_approve_two_list">Pending 2nd Approval (0{{countqueryset2ndAppr}})
       </a></span>
     {% endif %}
 

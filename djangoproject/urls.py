@@ -101,6 +101,7 @@ urlpatterns = [
 
     url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^settings/$', settings, name='settings'),
+    url(r'^notice_board/$', notice_board, name='notice_board'),
 
 
 ]

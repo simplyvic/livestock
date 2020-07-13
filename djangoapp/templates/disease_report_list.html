@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
-    <title>AMIS</title>
+    <title>LMIS</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/navbar-fixed/">
 
@@ -41,6 +41,7 @@
 
 <main role="main" class="container">
     {% if request.user.is_authenticated %}
+    {% if perms.djangoapp.add_diseasereport %}
 
   <div class="jumbotron">
     {% if messages %}
@@ -50,17 +51,17 @@
                {% endfor %}
        </ul>
     {% endif %}
-    {% if perms.djangoapp.add_clinical %}
-      <span class="myButton"><a href="/abattoir_entry">New Entry</a></span>
+    {% if perms.djangoapp.add_diseasereport %}
+      <span class="myButton"><a href="/disease_report_entry">New Entry</a></span>
     {% endif %}
       
-    {% if perms.djangoapp.add_general %}
-      <span class='myButtonAppr myButton'><a href="/disease_report_approve_one_list">Pending 1st Approvals (0{{countquerysetAppr}})
+    {% if perms.djangoapp.delete_diseasereport %}
+      <span class='myButtonAppr myButton'><a href="/disease_report_approve_one_list">Pending 1st Approvals (0{{countqueryset1stAppr}})
       </a></span>
     {% endif %}
 
-    {% if perms.djangoapp.add_general %}
-      <span class='myButtonAppr myButton'><a href="/disease_report_approve_two_list">Pending 2nd Approval (0{{countquerysetAppr}})
+    {% if perms.djangoapp.add_approver %}
+      <span class='myButtonAppr myButton'><a href="/disease_report_approve_two_list">Pending 2nd Approval (0{{countqueryset2ndAppr}})
       </a></span>
     {% endif %}
 
@@ -137,7 +138,13 @@
       </table>
   </div>
 </main>
-{% else %}Login in <a href="/accounts/login">here</a>
+{% else %}
+  <div class="row">
+      <span class="title" style="color: red; background-color: white; font-size: 20px; padding: 10px; width: 100%; text-align: center;">You don't have permission to access this page</span>
+    <!-- </div> -->
+  </div>
+{% endif %}
+{% else %}<span class="title">You are not logged in. Click <a href="/accounts/login">here</a> to login</span>
 {% endif %}
 <script src="{% static 'js/jquery-3.3.1.slim.min.js' %}" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
       <script>window.jQuery || document.write('<script src="{% static "js/jquery-slim.min.js" %}"><\/script>')</script><script src="{% static 'js/bootstrap.bundle.min.js' %}" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>

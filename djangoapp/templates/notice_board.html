@@ -50,37 +50,18 @@
           <div class="col-sm-9"><!--jumboton col 1-->
               <p>
                 {% if request.user.is_authenticated %}
-                <h1><font color="#2e6da4">Welcome {{title}}</font></h1>
-                <font size="4">
-                <!-- <font color="red">You have successfully signed in.</font> -->
-                Be informed that the system is tracking records of the transactions you do and your user account is being used for audit purpose.
-                <br />
-                Therefore, please keep your <span class="home-account">username</span> and <span class="home-account">password</span> safe.
-                <br /><br />
-                Note that only the menus that you have rights to access will be activated.
-                </font>
-  
-
-                {% else %}
-                  <h2><font color="red">{{title}}</font></h2>
-                  <!-- <font color = "red"> -->
-                    Do not attemp to login to this system if you are not part of the authorized group of XYZ list.
-                  <!-- </font> -->
-                  <br />
+                <h1><font color="#2e6da4"><img src="/static/img/annoucement.png"> {{title}}</font></h1>
+                  <font size="4" color="red">
+                    All important notice will be available here
+                    
+                    {% else %}
+                        Do not attemp to login to this system if you are not part of the authorized group of XYZ list.
+                  </font>
               </p>
-              <p>
-                <a class="btn btn-lg btn-primary" href="/accounts/login" role="button"><b>Login &raquo;</b></a>
-              </p>
-              {% endif %}
+                {% endif %}
          </div> <!--jumboton col 1 end-->
-         <div class="col-sm-3"> <!--Login div colomn-->
-              {% block content %}
-              {% endblock %}
-              <div class="coatofarms">
-                <img src="/static/img/pcsmall.png">
-              </div>
-            </div> <!-- END Login div colomn -->
-        </div> <!--jumboton row-->
+       </div>
+      </div> <!--jumboton row-->
 
         </div>
       </div>

@@ -14,7 +14,28 @@ from .forms import *
 
 
 
+
+
+
+
+
+
+
+
+
+
  
 # admin.site.register(Computer)
 admin.site.register(Clinical)
+admin.site.register(Quarter)
 admin.site.register(DiseaseReport)
+admin.site.register(Region)
+admin.site.register(Species)
+admin.site.register(Localty)
+admin.site.register(PrincipalSign)
+admin.site.register(ClinicalDiagnosis)
+admin.site.register(DiseaseCode)
+admin.site.register(ControlMeasures)
+admin.site.register(VaccinationHistory)
+admin.site.register(SampleType)
+admin.site.register(Approver)

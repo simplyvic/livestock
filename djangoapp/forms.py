@@ -5,7 +5,7 @@ from .models import *
 class ClinicalForm(forms.ModelForm):
 	class Meta:
 		model = Clinical
-		fields = ['employee', 'quarter', 'date', 'clinical_name', 'region','species', 'species_breed', 'specie_sex',
+		fields = ['quarter', 'date', 'clinical_name', 'region','species', 'species_breed', 'specie_sex',
 					'owner_name',
 					'owner_contact_no',
 					'owner_gender',
@@ -105,7 +105,7 @@ class QuarterForm(forms.ModelForm):
 class DiseaseForm(forms.ModelForm):
 	class Meta:
 		model = DiseaseReport
-		fields = ['employee', 'quarter', 'species', 'species_breed', 'specie_sex',
+		fields = ['quarter', 'species', 'species_breed', 'specie_sex',
 					'owner_name',
 					'owner_contact_no',
 					'owner_gender',
@@ -138,7 +138,7 @@ class SearchForm(forms.Form): # Customized Form to be to be used to save items i
 class LabForm(forms.ModelForm):
 	class Meta:
 		model = Lab
-		fields = ['employee', 'quarter', 'species', 'species_breed', 'specie_sex',
+		fields = ['quarter', 'species', 'species_breed', 'specie_sex',
 					'owner_name',
 					'owner_contact_no',
 					'owner_gender',
@@ -164,7 +164,7 @@ class LabForm(forms.ModelForm):
 class AbattoirForm(forms.ModelForm):
 	class Meta:
 		model = Abattoir
-		fields = ['employee', 'quarter', 'species', 'species_breed', 'specie_sex',
+		fields = ['quarter', 'species', 'species_breed', 'specie_sex',
 					'owner_name',
 					'owner_contact_no',
 					'owner_gender',
@@ -189,7 +189,7 @@ class AbattoirForm(forms.ModelForm):
 class LocalityForm(forms.ModelForm):
 	class Meta:
 		model = Locality
-		fields = ['employee', 'quarter', 'species', 'species_breed', 'specie_sex',
+		fields = ['quarter', 'species', 'species_breed', 'specie_sex',
 					'owner_name',
 					'owner_contact_no',
 					'owner_gender',
@@ -214,7 +214,7 @@ class LocalityForm(forms.ModelForm):
 class VaccinationForm(forms.ModelForm):
 	class Meta:
 		model = Vaccination
-		fields = ['employee', 'quarter', 'species', 'species_breed', 'specie_sex',
+		fields = ['quarter', 'species', 'species_breed', 'specie_sex',
 					'owner_name',
 					'owner_contact_no',
 					'owner_gender',
@@ -239,7 +239,7 @@ class VaccinationForm(forms.ModelForm):
 class VetInfraIndustryForm(forms.ModelForm):
 	class Meta:
 		model = VetInfraIndustry
-		fields = ['employee', 'quarter', 'species', 'species_breed', 'specie_sex',
+		fields = ['quarter', 'species', 'species_breed', 'specie_sex',
 					'owner_name',
 					'owner_contact_no',
 					'owner_gender',
@@ -264,7 +264,7 @@ class VetInfraIndustryForm(forms.ModelForm):
 class PermitsForm(forms.ModelForm):
 	class Meta:
 		model = Permits
-		fields = ['employee', 'quarter', 'species', 'species_breed', 'specie_sex',
+		fields = ['quarter', 'species', 'species_breed', 'specie_sex',
 					'owner_name',
 					'owner_contact_no',
 					'owner_gender',
@@ -289,7 +289,7 @@ class PermitsForm(forms.ModelForm):
 class TransportFleetForm(forms.ModelForm):
 	class Meta:
 		model = TransportFleet
-		fields = ['employee', 'quarter', 'species', 'species_breed', 'specie_sex',
+		fields = ['quarter', 'species', 'species_breed', 'specie_sex',
 					'owner_name',
 					'owner_contact_no',
 					'owner_gender',
@@ -314,7 +314,7 @@ class TransportFleetForm(forms.ModelForm):
 class ProductionForm(forms.ModelForm):
 	class Meta:
 		model = Production
-		fields = ['employee', 'quarter', 'species', 'species_breed',
+		fields = ['quarter', 'species', 'species_breed',
 					'owner_name',
 					'owner_contact_no',
 					'owner_gender',

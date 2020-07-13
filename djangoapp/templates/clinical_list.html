@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
-    <title>AMIS</title>
+    <title>LMIS</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/navbar-fixed/">
 
@@ -54,12 +54,12 @@
       <span class="myButton"><a href="/clinical_entry">New Entry</a></span>
     {% endif %}
       
-    {% if perms.djangoapp.add_general %}
+    {% if perms.djangoapp.delete_clinical %}
       <span class='myButtonAppr myButton'><a href="/clinical_approve_one_list">Pending 1st Approvals (0{{countqueryset1stAppr}})
       </a></span>
     {% endif %}
 
-        {% if perms.djangoapp.add_general %}
+        {% if perms.djangoapp.add_approver %}
       <span class='myButtonAppr myButton'><a href="/clinical_approve_two_list">Pending 2nd Approvals (0{{countqueryset2ndAppr}})
       </a></span>
     {% endif %}
@@ -115,7 +115,7 @@
           <tr>
              <td>{{forloop.counter}}</td>
              <td>{{instance.employee}}</td>
-             {% if perms.djangoapp.add_clinical %}
+             {% if perms.djangoapp.change_clinical %}
              <td><a style="color: blue" href="{% url 'clinical_edit' id=instance.id %}" data-toggle="tooltip" title="edit this item"> {{instance.clinical_name}}</td>
               {% else %}<td>{{instance.clinical_name}}</td>
               {% endif %}

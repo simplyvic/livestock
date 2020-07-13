@@ -9,7 +9,7 @@ import csv
 
 # Create your views here.
 def home(request):
-    title = 'CLINICAL MANAGEMENT INFORMATION SYSTEM'
+    title = 'LIVESTOCK MANAGEMENT INFORMATION SYSTEM'
     context = {
         "title": title,
     }
@@ -187,11 +187,13 @@ def disease_report_entry(request):
 
 
 def disease_report_list(request):
-    title = 'List of approved disease_report'
+    title = 'List of approved disease reported'
     queryset = DiseaseReport.objects.filter(approve_one='approve').filter(approve_two='approve')
 
+    # queryset =        DiseaseReport.objects.filter(approve_one=None).filter(approve_two=None)
     queryset1stAppr = DiseaseReport.objects.filter(approve_one=None).filter(approve_two=None)
     countqueryset1stAppr = queryset1stAppr.count()
+    print countqueryset1stAppr
     
     queryset2ndAppr = DiseaseReport.objects.filter(approve_one='Approve').filter(approve_two=None)
     countqueryset2ndAppr = queryset2ndAppr.count()
@@ -249,7 +251,7 @@ def disease_report_delete(request, id=None):
 
 
 def disease_report_approve_one_list(request):
-    title = 'List of unapproved disease_reports'
+    title = 'List of unapproved disease reported'
     queryset = DiseaseReport.objects.filter(approve_one=None).filter(approve_two=None)
     form = SearchForm(request.POST or None)
     context = {
@@ -285,7 +287,7 @@ def disease_report_approve_one_edit(request, id=None):
 
 
 def disease_report_approve_two_list(request):
-    title = 'List of unapproved disease_reports'
+    title = 'List of unapproved disease reported'
     queryset = DiseaseReport.objects.filter(approve_one='Approve').filter(approve_two=None)
     form = SearchForm(request.POST or None)
     context = {
@@ -554,7 +556,7 @@ def abattoir_delete(request, id=None):
 
 
 def abattoir_approve_one_list(request):
-    title = 'List of unapprove_one abattoirs'
+    title = 'List of unapproved abattoirs'
     queryset = Abattoir.objects.exclude(approve_one='approve_one')
     form = SearchForm(request.POST or None)
     context = {
@@ -591,7 +593,7 @@ def abattoir_approve_one_edit(request, id=None):
 
 
 def abattoir_approve_two_list(request):
-    title = 'List of unapprove_one abattoirs'
+    title = 'List of unapproved abattoirs'
     queryset = Abattoir.objects.filter(approve_one='Approve').filter(approve_two=None)
     form = SearchForm(request.POST or None)
     context = {
@@ -1233,7 +1235,7 @@ def permits_approve_two_edit(request, id=None):
 
 
 def transportFleet_entry(request):
-    title = 'Add TransportFleet'
+    title = 'Add Transport Fleet'
     form = TransportFleetForm(request.POST or None) 
     if form.is_valid():
         instance = form.save(commit=False)
@@ -1251,7 +1253,7 @@ def transportFleet_entry(request):
 
 
 def transportFleet_list(request):
-    title = 'List of approved transportFleet'
+    title = 'List of approved transport Fleet'
     queryset = TransportFleet.objects.filter(approve_one='approve').filter(approve_two='approve')
     queryset1stAppr = TransportFleet.objects.filter(approve_one=None).filter(approve_two=None)
     countqueryset1stAppr = queryset1stAppr.count()
@@ -1312,7 +1314,7 @@ def transportFleet_delete(request, id=None):
 
 
 def transportFleet_approve_one_list(request):
-    title = 'List of unapproved transportFleets'
+    title = 'List of unapproved transport Fleets'
     queryset = TransportFleet.objects.filter(approve_one=None).filter(approve_two=None)
     form = SearchForm(request.POST or None)
     context = {
@@ -1348,7 +1350,7 @@ def transportFleet_approve_one_edit(request, id=None):
 
 
 def transportFleet_approve_two_list(request):
-    title = 'List of unapproved transportFleets'
+    title = 'List of unapproved transport Fleets'
     queryset = TransportFleet.objects.filter(approve_one='Approve').filter(approve_two=None)
     form = SearchForm(request.POST or None)
     context = {
@@ -1549,6 +1551,15 @@ def settings(request):
         "form": form,
     }       
     return render(request, "settings.html",context)
+
+
+
+def notice_board(request):
+    title = 'Notice Board'
+    context = {
+        "title": title,
+    }       
+    return render(request, "notice_board.html",context)
 
 
 

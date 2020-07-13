@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
-    <title>CMIS</title>
+    <title>LMIS</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/navbar-fixed/">
 
@@ -46,18 +46,30 @@
 
 <main role="main" class="container">
   <div class="jumbotron">
+        <div class="jumbotron jumbotron-store">
         <div class="row">
-        {% if request.user.is_authenticated %}
-            <div class="col-sm-6">
-            <h1 class="title">{{title}}</h1>
-            <form method="post" action="">
-          {% csrf_token %}
-          {{form|crispy}}
-          <input class="btn btn-primary" type="submit" value="Save" />
-            </form>
-           </div><!-- first col-sm-6 -->
-       {% endif %}
-        </div><!-- first row -->
+          <div class="col-sm-12">
+          <div class="bucket">
+              <!-- <div class="custom-title">{{title}}</div><br/><br/> -->
+              {% if request.user.is_authenticated %}
+              
+                  <div class="pannel">
+                    {% if request.user.is_staff %}
+                        <h2 class="custom-title">MORE SETTINGS</h2>
+                            <div class="admin">
+                                <iframe src="/admin" width="100%" height="500px"></iframe>
+                            </div>
+                      </div><!--end div PANNEL class-->
+                    {% else %}<b>You do not have permission to view this page</b>
+                    {% endif %}
+
+                  
+              {% endif %}
+            </div><!--bucket End-->
+          </div><!--jumbotron col 1 end-->
+        </div> <!--jumboton row-->
+      
+      </div> <!--jumbotron end-->
   </div>
 </main>
 <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>

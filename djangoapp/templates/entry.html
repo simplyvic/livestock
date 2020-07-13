@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
-    <title>CMIS</title>
+    <title>LMIS</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/navbar-fixed/">
 
@@ -48,17 +48,19 @@
   <div class="jumbotron">
     	<div class="row">
         {% if request.user.is_authenticated %}
-    		<div class="col-sm-4">
+    		<div class="col-sm-12">
 		    <h1 class="title">{{title}}</h1>
-		    <form method="post" action="">
-          {% csrf_token %}
-          {{form|crispy}}
-          <input class="btn btn-primary" type="submit" value="Submit for approval" />
-		    </form>
-		   </div><!-- first col-sm-6 -->
-       <div class="col-sm-8 aligncenter">
-          <img style="width: 100%" src="/static/img/pc.png">
+        <div class="entry-form">
+  		    <form method="post" action="">
+            {% csrf_token %}
+            {{form|crispy}}
+            <input class="btn btn-primary" type="submit" value="Submit" />
+  		    </form>
         </div>
+		   </div><!-- first col-sm-6 -->
+<!--        <div class="col-sm-8 aligncenter">
+          <img style="width: 100%" src="/static/img/pc.png">
+        </div> -->
        {% endif %}
     	</div><!-- first row -->
   </div>

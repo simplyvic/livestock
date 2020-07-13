@@ -13,6 +13,35 @@ body {
     margin-right: 20px;
 }
 
+
+
+.entry-form #div_id_quarter, 
+.entry-form #div_id_species,
+.entry-form #div_id_species_breed,
+.entry-form #div_id_owner_contact_no,
+.entry-form #div_id_specie_sex,
+.entry-form #div_id_owner_name,
+.entry-form #div_id_owner_gender,
+.entry-form #div_id_localty,
+.entry-form #div_id_localty_longitude,
+.entry-form #div_id_localty_latitude,
+.entry-form #div_id_animal_group_size,
+.entry-form #div_id_animalID,
+.entry-form #div_id_date,
+.entry-form #div_id_region,
+.entry-form #div_id_clinical_name,
+.entry-form #div_id_pet_name,
+.entry-form #div_id_anamnesis,
+.entry-form #div_id_principal_signs,
+.entry-form #div_id_clinical_diagnosis,
+.entry-form #div_id_clinical_prognosis,
+.entry-form #div_id_animal_live_weight
+{
+    float: left;
+    width: 200px;
+    margin-right: 20px;
+}
+
 .title{
     font-family: helvetica;
     font-weight: bold;
@@ -20,6 +49,7 @@ body {
     color: #2e6da4;
     text-align: left;
 }
+
 
 /*Color, align and shadow the table*/
 table{
@@ -76,4 +106,69 @@ table tr:nth-child(even){
        -o-transition: all 0.5s ease;
       -ms-transition: all 0.5s ease;
           transition: all 0.5s ease;
+}
+
+#notice_board{
+    background-color: #212529;
+    color: white;
+    /*text-align: center;*/
+    display: inline;
+    /*font-weight: bolder;*/
+    /*size: 5px !important;*/
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 5px;
+    position: fixed;
+    bottom: 80px;
+    height: 500px;
+    left: -140px;
+    z-index: 3000;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+ 
+ 
+ 
+#notice_board:hover{
+    left: 0px;
+    -webkit-transition: all 0.5s ease;
+     -moz-transition: all 0.5s ease;
+       -o-transition: all 0.5s ease;
+      -ms-transition: all 0.5s ease;
+          transition: all 0.5s ease;
+}
+
+
+.blink-me{
+    -webkit-animation-name: blinker;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-name: blinker;
+    -moz-animation-duration: 2s;
+    -moz-animation-timing-function: linear;
+    -moz-animation-iteration-count: infinite;
+    animation-name: blinker;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@-moz-keyframes blinker {
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+@-webkit-keyframes blinker {
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+@keyframes blinker {
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
 }
