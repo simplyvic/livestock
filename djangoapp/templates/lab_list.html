@@ -50,11 +50,15 @@
                {% endfor %}
        </ul>
     {% endif %}
-    {% if perms.djangoapp.add_clinical %}
-      <span class="myButton"><a href="/abattoir_entry">New Entry</a></span>
+    {% if perms.djangoapp.add_dataentry %}
+      <span class="myButton"><a href="/lab_entry">New Entry</a></span>
+    {% endif %}
+
+    {% if perms.djangoapp.add_dataentry %}
+      <span class="myButton"><a href="/lab_list/in_progress">In Progress</a></span>
     {% endif %}
       
-    {% if perms.djangoapp.add_general %}
+    {% if perms.djangoapp.delete_lab %}
       <span class='myButtonAppr myButton'><a href="/lab_approve_one_list">Pending 1st Approvals (0{{countqueryset1stAppr}})
       </a></span>
     {% endif %}
@@ -99,7 +103,6 @@
           <tr>
              <th>#</th>
              <th>EMPLOYEE</th>
-             <th>CLINICAL NAME</th>
              <th>REGION</th>
              <th>SPECIES</th>
              <th>OWNER</th>
@@ -108,17 +111,15 @@
              <th>CLINICAL DIAG</th>
              <th>1ST APPR</th>
              <th>2ND APPR</th>
-             <!-- <th>TIMESTAMP</th> -->
-             <!-- <th>DELETE</th> -->
           </tr>
           {% for instance in queryset %}
           <tr>
              <td>{{forloop.counter}}</td>
-             <td>{{instance.employee}}</td>
-             {% if perms.djangoapp.add_clinical %}
-             <td><a style="color: blue" href="{% url 'clinical_edit' id=instance.id %}" data-toggle="tooltip" title="edit this item"> {{instance.clinical_name}}</td>
-              {% else %}<td>{{instance.clinical_name}}</td>
-              {% endif %}
+             <td>
+             <a style="color: blue"  href="{% url 'lab_detail' id=instance.id %}">
+             {{instance.employee}}
+             </a>
+             </td>
              <td>{{instance.region}}</td>
              <td>{{instance.species}}</td>
              <td>{{instance.owner_name}}</td>

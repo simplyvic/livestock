@@ -6,15 +6,17 @@ body {
 .flt-search #div_id_clinical_name, 
 .flt-search #div_id_owner_name,
 .flt-search #div_id_start_date,
-.flt-search #div_id_end_date
+.flt-search #div_id_end_date,
+.flt-search #div_id_sent_by,
+.flt-search #div_id_message,
+.flt-search #div_id_employee
 {
     float: left;
     width: 200px;
     margin-right: 20px;
 }
 
-
-
+/*.entry-form #div_id_surveillance_type, */
 .entry-form #div_id_quarter, 
 .entry-form #div_id_species,
 .entry-form #div_id_species_breed,
@@ -35,10 +37,51 @@ body {
 .entry-form #div_id_principal_signs,
 .entry-form #div_id_clinical_diagnosis,
 .entry-form #div_id_clinical_prognosis,
-.entry-form #div_id_animal_live_weight
+.entry-form #div_id_animal_live_weight,
+.entry-form #div_id_reporter_name,
+.entry-form #div_id_start_date,
+.entry-form #div_id_end_date,
+.entry-form #div_id_month,
+.entry-form #div_id_year,
+.entry-form #div_id_specie_age,
+.entry-form #div_id_principal_signs,
+.entry-form #div_id_clinical_diagnosis,
+.entry-form #div_id_disease_code,
+.entry-form #div_id_clinical_prognosis,
+.entry-form #div_id_vaccination_history,
+.entry-form #div_id_notifiable_disease,
+.entry-form #div_id_notification_frequency,
+.entry-form #div_id_zoonosis,
+.entry-form #div_id_no_of_cases,
+.entry-form #div_id_no_of_deaths,
+.entry-form #div_id_no_destroyed,
+.entry-form #div_id_incedence_rate,
+.entry-form #div_id_motality_rate,
+.entry-form #div_id_mobidity_rate,
+.entry-form #div_id_lab_sample_collected,
+.entry-form #div_id_sample_type,
+.entry-form #div_id_sample_ID,
+.entry-form #div_id_lab_test_applied,
+.entry-form #div_id_lab_test_results,
+.entry-form #div_id_control_measures,
+.entry-form #div_id_new_outbreak,
+.entry-form #div_id_owner_nin_no,
+.entry-form #div_id_production_system,
+.entry-form #div_id_production_type,
+.entry-form #div_id_no_animal_producer,
+.entry-form #div_id_no_of_borns,
+.entry-form #div_id_no_of_deaths,
+.entry-form #div_id_no_of_milkltres,
+.entry-form #div_id_no_of_eggs,
+.entry-form #div_id_cost_produced_per_milk_ltres,
+.entry-form #div_id_cost_produced_eggs,
+/*.entry-form #div_id_employee,*/
+/*.entry-form #div_id_approve_one,*/
+/*.entry-form #div_id_approve_two,*/
+.entry-form .btn
 {
     float: left;
-    width: 200px;
+    width: 189px;
     margin-right: 20px;
 }
 
@@ -48,6 +91,26 @@ body {
     font-size: 25px;
     color: #2e6da4;
     text-align: left;
+}
+
+.profile_detail{
+    padding: auto;
+    margin: 17px;
+    /*border: 1px black solid;*/
+    /*height: 15%;*/
+    box-shadow: 12px 12px 12px #b5b8bc;
+    background-color: white;
+    margin-bottom: 1%;
+}
+
+.profile_detail2{
+    padding: auto;
+    /*margin: 1%;*/
+    /*border: 1px black solid;*/
+    height: 15%;
+    box-shadow: 12px 12px 12px #b5b8bc;
+    background-color: white;
+    margin-bottom: 1%;
 }
 
 
@@ -108,7 +171,7 @@ table tr:nth-child(even){
           transition: all 0.5s ease;
 }
 
-#notice_board{
+.notice_board{
     background-color: #212529;
     color: white;
     /*text-align: center;*/
@@ -127,10 +190,37 @@ table tr:nth-child(even){
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
 }
+
+a:link{
+    text-decoration: none;
+    /*text text-decoration-line: none;*/
+}
+
+
+.message-list:hover{
+    transform: scale(1.01);
+}
+
+
+.mybutton{
+    /*color: white;    */
+    position: absolute;
+    bottom: 10px;
+}
+
+.message{
+    color: #dc3545; 
+    font-weight: bolder;
+}
+
+.message:hover{
+    transform: scale(1.1);
+}
+
+
  
  
- 
-#notice_board:hover{
+.notice_board:hover{
     left: 0px;
     -webkit-transition: all 0.5s ease;
      -moz-transition: all 0.5s ease;

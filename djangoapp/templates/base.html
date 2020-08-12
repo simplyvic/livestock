@@ -80,7 +80,7 @@
               {% block content %}
               {% endblock %}
               <div class="coatofarms">
-                <img src="/static/img/pcsmall.png">
+                <img src="/static/img/gmcoatofarms.png">
               </div>
             </div> <!-- END Login div colomn -->
         </div> <!--jumboton row-->
@@ -89,6 +89,20 @@
       </div>
       </div> <!--jumbotron end-->
     </div> <!-- /container -->
+
+
+    {% if request.user.is_authenticated %} 
+        <div class="notice_board">
+              <a href="notice_board_list"><div class="message">Notice board <img src="/static/img/annoucement.png"></div></a><br><br>
+              {% for instance in queryset %}
+              <span style="color: #dc3545;">From:<a href="{% url 'notice_board_detail' id=instance.id %}"></span> {{instance.sent_by}} <span class="blink-me"><img src="/static/img/new25.png"></span></a>
+              <br>
+              {% endfor %}
+              <a href="/notice_board_entry"><div class="btn btn-primary mybutton">Add Message</div></a>
+        </div>
+    {% endif %}
+
+
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>

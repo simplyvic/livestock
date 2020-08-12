@@ -64,13 +64,14 @@
           <tr>
              <th>#</th>
              <th>EMPLOYEE</th>
-             <th>CLINICAL NAME</th>
              <th>REGION</th>
              <th>SPECIES</th>
              <th>OWNER</th>
              <th>CONTACT NO</th>
              <th>ANIMAL ID</th>
              <th>CLINICAL DIAG</th>
+             <th>1ST APR</th>
+             <th>2ND APR</th>
              <!-- <th>TIMESTAMP</th> -->
              <!-- <th>DELETE</th> -->
           </tr>
@@ -78,16 +79,14 @@
           <tr>
              <td>{{forloop.counter}}</td>
              <td>{{instance.employee}}</td>
-             {% if perms.djangoapp.change_clinical %}
-             <td><a href="{% url 'clinical_approve_one_edit' id=instance.id %}" data-toggle="tooltip" title="approve_one/disapprove"> {{instance.clinical_name}}</td>
-              {% else %}<td>{{instance.clinical_name}}</td>
-              {% endif %}
              <td>{{instance.region}}</td>
              <td>{{instance.species}}</td>
              <td>{{instance.owner_name}}</td>
              <td>{{instance.owner_contact_no}}</td>
              <td>{{instance.animal_id}}</td>
              <td>{{instance.clinical_diagnosis}}</td>
+             <td><a href="{% url 'production_approve_one_edit' id=instance.id %}" data-toggle="tooltip" title="approve_one/disapprove">{{instance.approve_one}}</a></td>
+             <td><a href="{% url 'production_approve_two_edit' id=instance.id %}" data-toggle="tooltip" title="approve_two/disapprove">{{instance.approve_two}}</a></td>
              <!-- <td>{{instance.timestamp}}</td> -->
              {% if perms.djangoapp.delete_clinical %}
              <!-- <td><a href="{% url 'clinical_delete' id=instance.id %}" data-toggle="tooltip" title="delete this item"><img src="{% static 'img/del.png' %}"></a></td> -->

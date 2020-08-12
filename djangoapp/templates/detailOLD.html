@@ -1,0 +1,215 @@
+{% load staticfiles %}
+{% include 'navbar.html' %}
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- <link rel="icon" href="../../favicon.ico"> -->
+
+    <title>NAO UMIS</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/navbar-fixed-top.css' %}" rel="stylesheet">
+    <link href="{% static 'css/stylesheet.css' %}" rel="stylesheet">
+    <link href="{% static 'js/jqueryui/jquery-ui.css' %}" rel="stylesheet">
+    <link href="{% static 'js/jqueryui/jquery-ui.structure.css' %}" rel="stylesheet">
+    <link href="{% static 'js/jqueryui/jquery-ui.theme.css' %}" rel="stylesheet">
+    <link href="{% static 'js/icheck/skins/square/blue.css' %}" rel="stylesheet">
+    <link href="{% static 'js/nprogress/nprogress.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'js/datetimepicker-master/jquery.datetimepicker.css' %}">
+
+
+    <!-- <link href="your-path/square/color-scheme.css" rel="stylesheet"> -->
+
+
+  </head>
+
+  <body>
+  <div class="maincontainer">
+    <div class="container">
+      {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+      {% endif %}
+
+      <hr>
+
+      <!-- Main component for a primary marketing message or call to action -->
+     <div id="nanobar"></div>
+      <div class="jumbotron">
+        <div class="row">
+          <div class="col-sm-5">
+
+          </div> <!--jumboton col 1-->
+          {% if request.user.is_authenticated %}
+                <div class="col-sm-12 aligncenter gratuity-image">
+                  <div class="col-sm-12">
+                    <div class="row">
+                      <div class="col-sm-2 profile_detail">
+                            <div>
+                              <b>EMPLOYEE:</b><br>{{queryset.employee}}<br>
+                            </div>
+                      </div>
+                      <div class="col-sm-2 profile_detail">
+                            <div>
+                              <b>DATE:</b><br>{{queryset.date}}<br>
+                            </div>
+                      </div>
+                      <div class="col-sm-2 profile_detail">
+                            <div>
+                              <b>QUARTER:</b><br>{{queryset.quarter}}<br>
+                            </div>
+                      </div>
+                      <div class="col-sm-2 profile_detail">
+                            <div>
+                              <b>CLINICAL NAME:</b><br>{{queryset.clinical_name}}<br>
+                            </div>
+                      </div>
+                      <div class="col-sm-2 profile_detail">
+                            <div>
+                              <b>REGION:</b><br>{{queryset.region}}<br>
+                            </div>
+                      </div>
+                      <div class="col-sm-2 profile_detail">
+                            <div>
+                              <b>SPECIES:</b><br>{{queryset.species}}<br>
+                            </div>
+                      </div>
+                      <div class="col-sm-2 profile_detail">
+                            <div>
+                              <b>SPECIE BREED:</b><br>{{queryset.species_breed}}<br>
+                            </div>
+                      </div>
+                      <div class="col-sm-2 profile_detail">
+                            <div>
+                              <b>SPECIES SEX:</b><br>{{queryset.specie_sex}}<br>
+                            </div>
+                      </div>
+                      <div class="col-sm-2 profile_detail">
+                            <div>
+                              <b>OWNER NAME:</b><br>{{queryset.owner_name}}<br>
+                            </div>
+                      </div>
+                      <div class="col-sm-2 profile_detail">
+                            <div>
+                              <b>OWNER CONTACT:</b><br>{{queryset.owner_contact_no}}<br>
+                            </div>
+                      </div>
+                      <div class="col-sm-2 profile_detail">
+                            <div>
+                              <b>OWNER GENDER:</b><br>{{queryset.owner_gender}}<br>
+                            </div>
+                      </div>
+                      <div class="col-sm-2 profile_detail">
+                            <div>
+                              <b>LOCALITY:</b><br>{{queryset.locality}}<br>
+                            </div>
+                      </div>
+                      <div class="col-sm-2 profile_detail">
+                            <div>
+                              <b>LOCALITY LONGITUDE:</b><br>{{queryset.localty_longitude}}<br>
+                            </div>
+                      </div>
+                      <div class="col-sm-2 profile_detail">
+                            <div>
+                              <b>LOCALITY LATITUDE:</b><br>{{queryset.localty_latitude}}<br>
+                            </div>
+                      </div>
+                      <div class="col-sm-2 profile_detail">
+                            <div>
+                              <b>ANIMAL GROUP SIZE:</b><br>{{queryset.animal_group_size}}<br>
+                            </div>
+                      </div>
+                      <div class="col-sm-2 profile_detail">
+                            <div>
+                              <b>ANIMAL ID:</b><br>{{queryset.animalID}}<br>
+                            </div>
+                      </div>
+                      <div class="col-sm-2 profile_detail">
+                            <div>
+                              <b>PET NAME:</b><br>{{queryset.pet_name}}<br>
+                            </div>
+                      </div>
+                      <div class="col-sm-2 profile_detail">
+                            <div>
+                              <b>ANIMAL LIVE WEIGHT:</b><br>{{queryset.animal_live_weight}}<br>
+                            </div>
+                      </div>
+                      <div class="col-sm-2 profile_detail">
+                            <div>
+                              <b>ANAMNESIS:</b><br>{{queryset.anamnesis}}<br>
+                            </div>
+                      </div>
+                      <div class="col-sm-2 profile_detail">
+                            <div>
+                              <b>PRINCIPAL SIGNS:</b><br>{{queryset.principal_signs}}<br>
+                            </div>
+                      </div>
+                      <div class="col-sm-2 profile_detail">
+                            <div>
+                              <b>CLINICAL DIAGNOSIS:</b><br>{{queryset.clinical_diagnosis}}<br>
+                            </div>
+                      </div>
+                      <div class="col-sm-2 profile_detail">
+                            <div>
+                              <b>CLINICAL PROGNOSIS:</b><br>{{queryset.clinical_prognosis}}<br>
+                            </div>
+                      </div>
+                      <div class="col-sm-2 profile_detail">
+                            <div>
+                              <b>NOTIFYABLE DISEASE:</b><br>{{queryset.notifiable_disease}}<br>
+                            </div>
+                      </div>
+                      <div class="col-sm-2 profile_detail">
+                            <div>
+                              <b>NOTIFICATION FREQ:</b><br>{{queryset.notification_frequency}}<br>
+                            </div>
+                      </div>
+                      <div class="col-sm-2 profile_detail">
+                            <div>
+                              <b>SAMPLE TYPE:</b><br>{{queryset.sample_type}}<br>
+                            </div>
+                      </div>
+                    </div><!--End Row 1-->
+                  </div><!--END col-sm-12"-->
+
+                </div><!--  jumboton col 2 of jumbotron col 2 -->
+          {% endif %}
+        </div> <!--jumboton row-->
+      </div> <!--jumbotron end-->
+
+    </div> <!-- /container -->
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
+    <script src="{% static 'js/jquery-1.12.3.js' %}"></script>
+    <script src="{% static 'js/jqueryui/jquery-ui.js' %}"></script>
+    <script src="{% static 'js/pager/paging.js' %}"></script>
+    <script src="{% static 'js/moment.min.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+    <script src="{% static 'js/icheck/icheck.min.js' %}"></script>
+    <script src="{% static 'js/nprogress/nprogress.js' %}"></script>
+    <script src="{% static 'js/datetimepicker-master/build/jquery.datetimepicker.full.min.js' %}"></script>
+
+  </body>
+</html>

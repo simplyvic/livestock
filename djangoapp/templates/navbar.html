@@ -10,56 +10,37 @@
       </li>
       {% if request.user.is_authenticated %}
       
-      {% if perms.djangoapp.add_diseasereport %}
-      <li class="nav-item">
+      
+      <li class="nav-item active">
         <a class="nav-link" href="/disease_report_list">Disease Report</a>
       </li>
-      {% endif %}
-      {% if perms.djangoapp.add_clinical %}
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="/clinical_list">Clinical</a>
       </li>
-      {% endif %}
-      {% if perms.djangoapp.add_lab %}
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="/lab_list">Lab</a>
       </li>
-      {% endif %}
-      {% if perms.djangoapp.add_abottoir %}
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="/abattoir_list">Abattoir</a>
       </li>
-      {% endif %}
-      {% if perms.djangoapp.add_locality %}
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="/locality_list">Locality Infor</a>
       </li>
-      {% endif %}
-      {% if perms.djangoapp.add_vaccination %}
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="/vaccination_list">Vaccination</a>
       </li>
-      {% endif %}
-      {% if perms.djangoapp.add_vetinfraindustry %}
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="/vetInfraIndustry_list">Vet Industry</a>
       </li>
-      {% endif %}
-      {% if perms.djangoapp.add_transportfleet %}
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="/transportFleet_list">Transport Fleet</a>
       </li>
-      {% endif %}
-      {% if perms.djangoapp.add_production %}
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="/production_list">Production</a>
       </li>
-      {% endif %}
-      {% if perms.djangoapp.add_permit %}
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="/permits_list">Permit</a>
       </li>
-      {% endif %}
 
       {% endif %}
     </ul>
@@ -77,22 +58,6 @@
       <a href="/settings"> 
         <div id="settings">
               Settings <img src="/static/img/settings.png">
-        </div>
-      </a>
-{% endif %}
-
-{% if request.user.is_authenticated %}
-      <a href="/notice_board"> 
-        <div id="notice_board">
-              <span style="color: #dc3545; font-weight: bolder;">Notice board</span> <img src="/static/img/annoucement.png"><br>
-              
-              <span style="color: #dc3545;">From:</span> Director<span class="blink-me"><img src="/static/img/new25.png"></span><br>
-              <span style="color: #dc3545;">From:</span> DDirector</span><span class="blinkme"></span><br>
-              <span style="color: #dc3545;">From:</span> DDirector</span><span class="blinkme"></span><br>
-              <!-- From: <span class="red">DDG<span class="blinkme"></span><br>
-              From: <span class="red">DG<span class="blinkme"></span><br>
-              From: <span class="red">DG<span class="blinkme"></span><br>
-              From: <span class="red">DDG<span class="blinkme"></span><br> -->
         </div>
       </a>
 {% endif %}

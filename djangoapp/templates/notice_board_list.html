@@ -40,6 +40,7 @@
   </head>
   <body>
 {% include 'navbar.html' %}
+{% load crispy_forms_tags %}
 
   <div class="maincontainer">
     <div class="container">
@@ -47,18 +48,48 @@
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
         <div class="row">
-          <div class="col-sm-9"><!--jumboton col 1-->
-              <p>
-                {% if request.user.is_authenticated %}
+      {% if request.user.is_authenticated %}
+          <div class="col-sm-12">
+                {% if messages %}
+                    <ul class="messages">
+                           {% for message in messages %}
+                                 <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                           {% endfor %}
+                   </ul>
+                {% endif %}
+
                 <h1><font color="#2e6da4"><img src="/static/img/annoucement.png"> {{title}}</font></h1>
-                  <font size="4" color="red">
-                    All important notice will be available here
-                    
+                    <div class="flt-search">
+                        <form method="post" action="">
+                           {% csrf_token %}
+                           {{form|crispy}}
+                           <input class="btn btn-primary" type="submit" value="Search" />
+                        </form>
+                    </div>
+
+          </div>
+          <div class="col-sm-12"><!--jumboton col 1-->
+              <p>
+                  <font size="" color="#2e6da4">
+                    {% for instance in queryset %}
+                    <hr>
+                    <a href="{% url 'notice_board_detail' id=instance.id %}">
+                      <div class="message-list">
+                        <span style="color: #dc3545;">
+                          {% if not user in instance.read_by %}
+                            <span class="blink-me"><img src="/static/img/new25.png"></span>
+                          {% endif %}
+                          {{instance.date_sent}}: <b>{{instance.sent_by}}: </b>
+                        </span>{{instance.message|truncatechars:100}}
+                      </div>
+                    </a>
+                    <hr>
+                    {% endfor %}
                     {% else %}
                         Do not attemp to login to this system if you are not part of the authorized group of XYZ list.
                   </font>
               </p>
-                {% endif %}
+      {% endif %}
          </div> <!--jumboton col 1 end-->
        </div>
       </div> <!--jumboton row-->

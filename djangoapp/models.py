@@ -1,11 +1,27 @@
 from django.db import models
 from datetime import datetime, date
 
-# Create your models here.
+class NoticeBoard(models.Model):
+    message = models.TextField(max_length=5000, blank=True) 
+    sent_by = models.CharField(max_length=30, blank=True) 
+    edited_by = models.CharField(max_length=30, blank=True) 
+    read_by = models.TextField(max_length=10000, blank=True, null=True) 
+    date_sent = models.DateTimeField(auto_now_add=True, auto_now=False, blank=True, null=True)
+    date_edited = models.DateField(auto_now_add=False, auto_now=True, blank=True, null=True)
+    def __unicode__(self):
+       return self.message
+
 class Approver(models.Model):
     name = models.CharField(max_length=30, blank=True) 
     def __unicode__(self):
        return self.name
+
+
+class DataEntry(models.Model):
+    name = models.CharField(max_length=30, blank=True) 
+    def __unicode__(self):
+       return self.name
+
 
 class Quarter(models.Model):
     name = models.CharField(max_length=30, blank=True) 
@@ -126,7 +142,7 @@ class General(models.Model):
 
 class Clinical(models.Model):
     employee = models.CharField(max_length=30, blank=True)
-    date = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
+    date = models.DateField(auto_now_add=True, auto_now=False, blank=True, null=True)
     quarter = models.ForeignKey(Quarter, blank=True, null=True)
     clinical_name = models.CharField(max_length=30, blank=True, null=True)
     region = models.ForeignKey(Region, blank=True, null=True)
@@ -151,6 +167,7 @@ class Clinical(models.Model):
     approve_one = models.CharField(max_length=30, blank=True, null=True, choices=General.approval_choice)
     approve_two = models.CharField(max_length=30, blank=True, null=True, choices=General.approval_choice)
     export_to_CSV = models.BooleanField(default=False)
+    comment = models.TextField(max_length=5000, blank=True) 
     def __unicode__(self):
        return str(self.owner_name) + str(self.species)
 
@@ -159,13 +176,13 @@ class DiseaseReport(models.Model):
     surveillance_type = models.CharField(max_length=30, blank=True, null=True, choices=General.surveillance_type_choice)
     employee = models.CharField(max_length=30, blank=True)
     new_outbreak = models.BooleanField(default=False)
-    date = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
+    date = models.DateField(auto_now_add=True, auto_now=False, blank=True, null=True)
     reporter_name = models.CharField(max_length=30, blank=True, null=True)
     start_date = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
     end_date = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
     quarter = models.ForeignKey(Quarter, blank=True, null=True)
-    month = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
-    year = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
+    # month = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
+    # year = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
     localty = models.ForeignKey(Localty, blank=True, null=True)
     localty_longitude = models.CharField(max_length=30, blank=True)
     localty_latitude = models.CharField(max_length=30, blank=True)
@@ -205,7 +222,7 @@ class DiseaseReport(models.Model):
     control_measures= models.ForeignKey(ControlMeasures, blank=True, null=True)
     approve_one = models.CharField(max_length=30, blank=True, null=True, choices=General.approval_choice)
     approve_two = models.CharField(max_length=30, blank=True, null=True, choices=General.approval_choice)
-
+    comment = models.TextField(max_length=5000, blank=True) 
     def __unicode__(self):
        return str(self.owner_name) + ' - ' + str(self.species)
 
@@ -221,8 +238,8 @@ class Lab(models.Model):
     start_date = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
     end_date = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
     quarter = models.ForeignKey(Quarter, blank=True, null=True)
-    month = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
-    year = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
+    # month = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
+    # year = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
     localty = models.ForeignKey(Localty, blank=True, null=True)
     localty_longitude = models.CharField(max_length=30, blank=True)
     localty_latitude = models.CharField(max_length=30, blank=True)
@@ -256,7 +273,7 @@ class Lab(models.Model):
     lab_test_results= models.CharField(max_length=30, blank=True, null=True, choices=General.lab_test_results_choice)
     approve_one = models.CharField(max_length=30, blank=True, null=True, choices=General.approval_choice)
     approve_two = models.CharField(max_length=30, blank=True, null=True, choices=General.approval_choice)
-    
+    comment = models.TextField(max_length=5000, blank=True) 
     def __unicode__(self):
        return str(self.owner_name) + ' - ' + str(self.species)
 
@@ -270,8 +287,8 @@ class Abattoir(models.Model):
     start_date = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
     end_date = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
     quarter = models.ForeignKey(Quarter, blank=True, null=True)
-    month = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
-    year = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
+    # month = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
+    # year = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
     localty = models.ForeignKey(Localty, blank=True, null=True)
     localty_longitude = models.CharField(max_length=30, blank=True)
     localty_latitude = models.CharField(max_length=30, blank=True)
@@ -306,7 +323,7 @@ class Abattoir(models.Model):
     control_measures= models.ForeignKey(ControlMeasures, blank=True, null=True)
     approve_one = models.CharField(max_length=30, blank=True, null=True, choices=General.approval_choice)
     approve_two = models.CharField(max_length=30, blank=True, null=True, choices=General.approval_choice)
-    
+    comment = models.TextField(max_length=5000, blank=True) 
     def __unicode__(self):
        return str(self.owner_name) + ' - ' + str(self.species)
 
@@ -320,8 +337,8 @@ class Locality(models.Model):
     start_date = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
     end_date = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
     quarter = models.ForeignKey(Quarter, blank=True, null=True)
-    month = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
-    year = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
+    # month = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
+    # year = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
     localty = models.ForeignKey(Localty, blank=True, null=True)
     localty_longitude = models.CharField(max_length=30, blank=True)
     localty_latitude = models.CharField(max_length=30, blank=True)
@@ -356,7 +373,7 @@ class Locality(models.Model):
     control_measures= models.ForeignKey(ControlMeasures, blank=True, null=True)
     approve_one = models.CharField(max_length=30, blank=True, null=True, choices=General.approval_choice)
     approve_two = models.CharField(max_length=30, blank=True, null=True, choices=General.approval_choice)
-    
+    comment = models.TextField(max_length=5000, blank=True) 
     def __unicode__(self):
        return str(self.owner_name) + ' - ' + str(self.species)
 
@@ -371,8 +388,8 @@ class Vaccination(models.Model):
     start_date = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
     end_date = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
     quarter = models.ForeignKey(Quarter, blank=True, null=True)
-    month = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
-    year = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
+    # month = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
+    # year = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
     localty = models.ForeignKey(Localty, blank=True, null=True)
     localty_longitude = models.CharField(max_length=30, blank=True)
     localty_latitude = models.CharField(max_length=30, blank=True)
@@ -407,7 +424,7 @@ class Vaccination(models.Model):
     control_measures= models.ForeignKey(ControlMeasures, blank=True, null=True)
     approve_one = models.CharField(max_length=30, blank=True, null=True, choices=General.approval_choice)
     approve_two = models.CharField(max_length=30, blank=True, null=True, choices=General.approval_choice)
-    
+    comment = models.TextField(max_length=5000, blank=True) 
     def __unicode__(self):
        return str(self.owner_name) + ' - ' + str(self.species)
 
@@ -420,8 +437,8 @@ class VetInfraIndustry(models.Model):
     start_date = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
     end_date = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
     quarter = models.ForeignKey(Quarter, blank=True, null=True)
-    month = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
-    year = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
+    # month = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
+    # year = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
     localty = models.ForeignKey(Localty, blank=True, null=True)
     localty_longitude = models.CharField(max_length=30, blank=True)
     localty_latitude = models.CharField(max_length=30, blank=True)
@@ -456,7 +473,7 @@ class VetInfraIndustry(models.Model):
     control_measures= models.ForeignKey(ControlMeasures, blank=True, null=True)
     approve_one = models.CharField(max_length=30, blank=True, null=True, choices=General.approval_choice)
     approve_two = models.CharField(max_length=30, blank=True, null=True, choices=General.approval_choice)
-    
+    comment = models.TextField(max_length=5000, blank=True) 
     def __unicode__(self):
        return str(self.owner_name) + ' - ' + str(self.species)
 
@@ -469,8 +486,8 @@ class Permits(models.Model):
     start_date = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
     end_date = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
     quarter = models.ForeignKey(Quarter, blank=True, null=True)
-    month = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
-    year = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
+    # month = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
+    # year = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
     localty = models.ForeignKey(Localty, blank=True, null=True)
     localty_longitude = models.CharField(max_length=30, blank=True)
     localty_latitude = models.CharField(max_length=30, blank=True)
@@ -505,7 +522,7 @@ class Permits(models.Model):
     control_measures= models.ForeignKey(ControlMeasures, blank=True, null=True)
     approve_one = models.CharField(max_length=30, blank=True, null=True, choices=General.approval_choice)
     approve_two = models.CharField(max_length=30, blank=True, null=True, choices=General.approval_choice)
-    
+    comment = models.TextField(max_length=5000, blank=True) 
     def __unicode__(self):
        return str(self.owner_name) + ' - ' + str(self.species)
 
@@ -520,8 +537,8 @@ class TransportFleet(models.Model):
     start_date = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
     end_date = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
     quarter = models.ForeignKey(Quarter, blank=True, null=True)
-    month = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
-    year = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
+    # month = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
+    # year = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
     localty = models.ForeignKey(Localty, blank=True, null=True)
     localty_longitude = models.CharField(max_length=30, blank=True)
     localty_latitude = models.CharField(max_length=30, blank=True)
@@ -556,7 +573,7 @@ class TransportFleet(models.Model):
     control_measures= models.ForeignKey(ControlMeasures, blank=True, null=True)
     approve_one = models.CharField(max_length=30, blank=True, null=True, choices=General.approval_choice)
     approve_two = models.CharField(max_length=30, blank=True, null=True, choices=General.approval_choice)
-    
+    comment = models.TextField(max_length=5000, blank=True) 
     def __unicode__(self):
        return str(self.owner_name) + ' - ' + str(self.species)
 
@@ -569,7 +586,7 @@ class Production(models.Model):
     start_date = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
     end_date = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
     quarter = models.ForeignKey(Quarter, blank=True, null=True)
-    month = models.DateField(auto_now_add=False, auto_now=False, blank=True)
+    # month = models.DateField(auto_now_add=False, auto_now=False, blank=True)
     
     localty = models.ForeignKey(Localty, blank=True, null=True)
     localty_longitude = models.CharField(max_length=30, blank=True)
@@ -580,8 +597,8 @@ class Production(models.Model):
     species = models.ForeignKey(Species, blank=True, null=True)
     species_breed = models.ForeignKey(SpeciesBreed, blank=True, null=True)
     animal_group_size= models.CharField(max_length=30, blank=True)
-    No_animal_producer= models.CharField(max_length=30, blank=True)
-    No_of_borns= models.CharField(max_length=30, blank=True)
+    no_animal_producer= models.CharField(max_length=30, blank=True)
+    no_of_borns= models.CharField(max_length=30, blank=True)
     no_of_deaths = models.CharField(max_length=30, blank=True, null=True)
     animalID = models.CharField(max_length=30, blank=True)
     no_of_milkltres = models.CharField(max_length=30, blank=True, null=True)
@@ -595,7 +612,7 @@ class Production(models.Model):
     cost_produced_eggs = models.CharField(max_length=30, blank=True, null=True)
     approve_one = models.CharField(max_length=30, blank=True, null=True, choices=General.approval_choice)
     approve_two = models.CharField(max_length=30, blank=True, null=True, choices=General.approval_choice)
-    
+    comment = models.TextField(max_length=5000, blank=True) 
     def __unicode__(self):
        return str(self.owner_name) + ' - ' + str(self.species)
 
